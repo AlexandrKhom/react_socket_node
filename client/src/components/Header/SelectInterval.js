@@ -23,6 +23,7 @@ export function DialogSelect() {
   const dispatch = useDispatch();
   const { time } = useSelector(({ currency }) => currency);
   const socket = io(SERVER_URL);
+  const chooseTimerSpeed = (e) => dispatch(setNewTime(+e.target.value));
 
   useEffect(() => {
     socket.emit("start", time);
@@ -30,9 +31,8 @@ export function DialogSelect() {
       dispatch(setNewResponse(data));
     });
     return () => socket.disconnect();
-  }, [ time, dispatch, socket ]);
+  }, [ time, dispatch ]);
 
-  const chooseTimerSpeed = (e) => dispatch(setNewTime(+e.target.value));
 
   const [ open, setOpen ] = useState(false);
 
@@ -64,19 +64,18 @@ export function DialogSelect() {
                 onChange={ chooseTimerSpeed }
                 input={ <OutlinedInput label="time" id="demo-dialog-native"/> }
               >
-                {/*<option aria-label="None" value=""/>*/}
+                {/*<option aria-label="None" value=""/>*/ }
                 <option value={ 1000 }>1 sec</option>
                 <option value={ 5000 }>5 sec</option>
                 <option value={ 10000 }>10 sec</option>
                 <option value={ 30000 }>30 sec</option>
                 <option value={ 60000 }>60 sec</option>
-                <option value={ 6000000 }>STOP</option>
               </Select>
             </FormControl>
           </Box>
         </DialogContent>
         <DialogActions>
-          <Button onClick={ handleClose }>Ok</Button>
+          <Button onClick={ handleClose }>Close</Button>
         </DialogActions>
       </Dialog>
     </div>

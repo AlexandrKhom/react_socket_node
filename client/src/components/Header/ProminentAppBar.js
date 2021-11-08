@@ -10,6 +10,8 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import { TemporaryDrawer } from "./TemporaryDrawer";
 import { DialogSelect } from "./SelectInterval";
 import { ScrollDialog } from "../HistoryInfo";
+import { useState } from "react";
+import Button from "@mui/material/Button";
 
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
@@ -25,8 +27,14 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 }));
 
 
-
 export function ProminentAppBar() {
+
+  const [ plus, setPlus ] = useState(true);
+
+  const isPlus = () => {
+    setPlus(!plus)
+  }
+
   return (
     <Box sx={ { flexGrow: 1 } }>
       <AppBar position="static">
@@ -47,7 +55,10 @@ export function ProminentAppBar() {
             sx={ { flexGrow: 1, alignSelf: 'flex-end' } }
           >
           </Typography>
-          <DialogSelect/>
+          { plus ?
+            <Button variant="contained" size="small" onClick={ isPlus }> STOP </Button> :
+            <Button variant="contained" size="small" onClick={ isPlus }>RESUME</Button> }
+          { plus && <DialogSelect/> }
           <IconButton size="large" aria-label="search" color="inherit">
             <SearchIcon/>
           </IconButton>

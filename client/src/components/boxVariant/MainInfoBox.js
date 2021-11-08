@@ -28,7 +28,7 @@ const ItemVariant = styled(Paper)(({ theme }) => ({
     fontSize: '0.7rem',
     lineHeight: 1,
     background: '#91ffff',
-    borderRadius: '30%'
+    borderRadius: '40%'
   },
 }));
 
@@ -64,7 +64,9 @@ export function MainInfoBox({ financeData }) {
           <Item>Time</Item>
         </Grid>
       </Grid>
-      <hr/>
+<br/>
+<br/>
+<br/>
 
       { financeData.map((el, i) =>
         (
@@ -110,11 +112,12 @@ export function MainInfoBox({ financeData }) {
               </Grid>
               <Grid item xs={ 2 }>
                 <Item>
-                  { new Date().toLocaleTimeString() }
+                  {new Date(el.last_trade_time).toLocaleTimeString() }
                 </Item>
               </Grid>
             </Grid>
-            <hr/>
+            <br/>
+            <br/>
           </div>)) }
     </Box>
   );
