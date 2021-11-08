@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+  /*font-size: xx-small;*/
+  line-height: 1;
+}
+.up {
+  background-color: green;
+}
+.dawn {
+  background-color: red;
+}
+.footer {
+  background-color: blue;
+}
