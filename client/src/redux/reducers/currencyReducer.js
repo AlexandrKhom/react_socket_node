@@ -1,6 +1,6 @@
 import { SET_NEW_TIME, SET_NEW_RESPONSE } from "../action-types";
 
-const initialState = { dataHistory: [], lastResponse: [], time: 1000 };
+const initialState = { dataHistory: [], lastResponse: [], time: 5000 };
 
 export const currencyReducer = (state = initialState, action) => {
   const { type, payload } = action;

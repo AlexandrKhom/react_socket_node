@@ -14,10 +14,9 @@ import { useSelector, useDispatch } from "react-redux";
 import io from 'socket.io-client';
 import { setNewResponse, setNewTime } from "../../redux";
 import { useEffect, useState } from 'react';
-import { currencyReducer } from "../../redux/reducers/currencyReducer";
 
 
-const SERVER_URL = 'http://localhost:5000';
+const SERVER_URL = 'http://localhost:4000';
 
 export function DialogSelect() {
 
